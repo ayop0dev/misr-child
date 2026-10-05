@@ -1,0 +1,89 @@
+/*
+ * Otour brand layer.
+ *
+ * Only token values and brand-specific touches; structure comes from the
+ * Egstore theme. Store-wide colours (primary, text, price, card buttons) are
+ * Customizer settings; this file adds the dark "midnight forest" homepage.
+ *
+ * Palette: midnight #192c27, surface #1e352f, elevated #243e37,
+ * pearl #f2f7f6, frost #e6f0ee, slate #365951, emerald #007f5f,
+ * botanical #55a630.
+ */
+
+/* Homepage: dark surfaces for the header, the page and the bottom bar. */
+body.home {
+	background: #192c27;
+}
+
+body.home .eg-header,
+body.home .site-main,
+body.home .eg-mobile-shortcuts {
+	--eg-color-canvas: #192c27;
+	--eg-color-surface: #1e352f;
+	--eg-color-surface-hover: #243e37;
+	--eg-color-ink: #f2f7f6;
+	--eg-color-muted: #a9c0ba;
+	--eg-color-line: rgb(230 240 238 / 0.12);
+	--eg-color-inverse: #f2f7f6;
+	/* Aliases resolve where they are declared (:root), so restate them here. */
+	--eg-color-text: var(--eg-color-ink);
+	--eg-color-text-muted: var(--eg-color-muted);
+	--eg-color-border: var(--eg-color-line);
+	/* Emerald is too dark for text on midnight; prices use the botanical green. */
+	--eg-color-price: #55a630;
+	/* Inherited text colour is computed on <body>; restate it for the scope. */
+	color: var(--eg-color-ink);
+}
+
+body.home .eg-header {
+	box-shadow: 0 1px 0 rgb(230 240 238 / 0.08);
+}
+
+/* Featured menu item on the dark header. */
+body.home .eg-header__menu > li.is-featured > a {
+	--eg-color-primary: #55a630;
+	--eg-color-inverse: #192c27;
+}
+
+body.home .eg-announcement-bar {
+	--eg-announcement-bg: #10201b;
+	--eg-announcement-text: #e6f0ee;
+	border-block-end: 1px solid rgb(230 240 238 / 0.08);
+}
+
+/* Hero: text side (right in RTL) darkened for legibility. */
+body.home .eg-hero {
+	--eg-hero-min-height: clamp(30rem, 82vh, 48rem);
+	--eg-hero-overlay: linear-gradient(to left, rgb(25 44 39 / 0.94), rgb(25 44 39 / 0.6) 55%, rgb(25 44 39 / 0.2));
+	--eg-hero-accent: #007f5f;
+	--eg-hero-accent-text: #f2f7f6;
+}
+
+[dir="ltr"] body.home .eg-hero {
+	--eg-hero-overlay: linear-gradient(to right, rgb(25 44 39 / 0.94), rgb(25 44 39 / 0.6) 55%, rgb(25 44 39 / 0.2));
+}
+
+body.home .eg-hero__eyebrow {
+	color: #55a630;
+}
+
+/* Image panels: midnight scrims instead of the (now light) ink colour. */
+body.home .eg-promo-banners,
+body.home .eg-product-collection__promo {
+	--eg-promo-bg: #10201b;
+	--eg-promo-text: #f2f7f6;
+	--eg-promo-overlay: linear-gradient(to top, rgb(16 32 27 / 0.92), rgb(16 32 27 / 0.15) 75%);
+}
+
+body.home .eg-category-showcase {
+	--eg-category-label-bg: #192c27;
+	--eg-category-label-text: #e6f0ee;
+	--eg-category-accent: #55a630;
+}
+
+body.home .eg-features {
+	--eg-features-bg: #10201b;
+	--eg-features-icon-bg: #1e352f;
+	--eg-features-icon: #55a630;
+	border-block: 1px solid rgb(230 240 238 / 0.08);
+}

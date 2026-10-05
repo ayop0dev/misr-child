@@ -1,0 +1,11 @@
+/*
+Theme Name: Otour Store
+Description: Store layer for عطور.ستور on top of the Egstore theme: homepage composition, copy and brand styling only.
+Template: Egstore-theme
+Version: 1.0.0
+Requires at least: 6.6
+Requires PHP: 8.1
+Text Domain: egstore-otour
+*/
+
+/* Styles live in assets/store.css (enqueued by functions.php). */
