@@ -3,7 +3,8 @@
  *
  * Only token values and brand-specific touches; structure comes from the
  * Egstore theme. Store-wide colours (primary, text, price, card buttons) are
- * Customizer settings; this file adds the dark "midnight forest" homepage.
+ * Customizer settings. The homepage uses the theme's light palette; only its
+ * hero and the features band before the footer keep the demo's dark look.
  *
  * Palette: midnight #192c27, surface #1e352f, elevated #243e37,
  * pearl #f2f7f6, frost #e6f0ee, slate #365951, emerald #007f5f,
@@ -12,7 +13,7 @@
 
 /* Header menu as in the Otour demo, on every page: text links without a
    box and one underline that slides to the item under the pointer (or
-   keyboard focus) and back to the current page's item (assets/menu.js).
+   keyboard focus) and back to the current page's item (assets/store.js).
    Featured items ("عنصر مميز") keep their star and colour, no underline of
    their own. */
 .eg-header__nav {
@@ -54,11 +55,11 @@
 	color: var(--eg-color-ink);
 }
 
-/* The sliding underline. menu.js sets its width and offset. */
+/* The sliding underline. store.js sets its width and offset. */
 .otour-menu-indicator {
 	position: absolute;
 	inset-block-end: 0.45rem;
-	/* Physical left: menu.js measures from the nav's left edge. */
+	/* Physical left: store.js measures from the nav's left edge. */
 	left: 0;
 	inline-size: var(--otour-indicator-width, 0px);
 	block-size: 2px;
@@ -119,49 +120,25 @@
 	will-change: transform;
 }
 
-/* Homepage: dark surfaces for the header, the page and the bottom bar. */
-body.home {
-	background: #192c27;
-	/* Borders on the dark homepage: frost at the Customizer's border
-	   opacity ("شفافية الحدود", 30% by default), so the setting applies
-	   here too; at 30% this is the 12% frost line the design used. */
-	--otour-border: color-mix(in oklch, rgb(230 240 238 / 0.4) var(--eg-border-opacity, 30%), transparent);
-}
-
-body.home .eg-header,
-body.home .site-main,
-body.home .eg-mobile-shortcuts {
+/* Homepage: the theme's light palette, like every other page. Only the hero
+   and the features band before the footer keep the demo's dark "midnight
+   forest" look. */
+body.home .eg-hero,
+body.home .eg-features {
 	--eg-color-canvas: #192c27;
 	--eg-color-surface: #1e352f;
 	--eg-color-surface-hover: #243e37;
 	--eg-color-ink: #f2f7f6;
 	--eg-color-muted: #a9c0ba;
 	--eg-color-line: rgb(230 240 238 / 0.12);
-	--eg-color-inverse: #f2f7f6;
 	/* Aliases resolve where they are declared (:root), so restate them here. */
 	--eg-color-text: var(--eg-color-ink);
 	--eg-color-text-muted: var(--eg-color-muted);
-	--eg-color-border: var(--otour-border);
-	/* Emerald is too dark for text on midnight; prices use the botanical green. */
-	--eg-color-price: #55a630;
+	/* Borders: frost at the Customizer's border opacity ("شفافية الحدود",
+	   12% at the 30% default). */
+	--eg-color-border: color-mix(in oklch, rgb(230 240 238 / 0.4) var(--eg-border-opacity, 30%), transparent);
 	/* Inherited text colour is computed on <body>; restate it for the scope. */
 	color: var(--eg-color-ink);
-}
-
-body.home .eg-header {
-	box-shadow: 0 1px 0 rgb(230 240 238 / 0.08);
-}
-
-/* Featured menu item on the dark header. */
-body.home .eg-header__menu > li.is-featured > a {
-	--eg-color-primary: #55a630;
-	--eg-color-inverse: #192c27;
-}
-
-body.home .eg-announcement-bar {
-	--eg-announcement-bg: #10201b;
-	--eg-announcement-text: #e6f0ee;
-	border-block-end: 1px solid var(--otour-border);
 }
 
 /* Hero: text side (right in RTL) darkened for legibility. */
@@ -180,30 +157,10 @@ body.home .eg-hero__eyebrow {
 	color: #55a630;
 }
 
-/* Image panels: midnight scrims instead of the (now light) ink colour. */
-body.home .eg-promo-banners,
-body.home .eg-product-collection__promo {
-	--eg-promo-bg: #10201b;
-	--eg-promo-text: #f2f7f6;
-	--eg-promo-overlay: linear-gradient(to top, rgb(16 32 27 / 0.92), rgb(16 32 27 / 0.15) 75%);
-}
-
-body.home .eg-category-showcase {
-	--eg-category-label-bg: #192c27;
-	--eg-category-label-text: #e6f0ee;
-	--eg-category-accent: #55a630;
-}
-
+/* Features band before the footer. */
 body.home .eg-features {
 	--eg-features-bg: #10201b;
 	--eg-features-icon-bg: #1e352f;
 	--eg-features-icon: #55a630;
-	border-block: 1px solid var(--otour-border);
-}
-
-/* Cart count on the dark header and bottom bar: the badge is drawn in the
-   (here light) ink colour, so its number takes the midnight colour. The
-   inverse token stays light for the card buttons' icons on emerald. */
-body.home :is(.eg-header, .eg-mobile-shortcuts) .eg-cart-badge {
-	color: #192c27;
+	border-block: 1px solid var(--eg-color-border);
 }
