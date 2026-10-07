@@ -86,6 +86,14 @@
 	}
 }
 
+/* "العطور الأصلية والإصدارات المميزة" on one line: the theme caps section
+   titles at 18ch. Down to 24px on narrow phones so it still fits at 360px;
+   narrower screens wrap rather than overflow. */
+#new-arrivals .eg-product-collection__heading h2 {
+	max-inline-size: none;
+	font-size: clamp(1.5rem, 5vw, 3.5rem);
+}
+
 /* Categories ("عوالم النفحات", #catalogue) as in the demo: a full-width band
    that loops on its own and stops while pointed at, without arrows. Cards
    enter and leave at the screen edges. store.js adds .is-otour-marquee;
