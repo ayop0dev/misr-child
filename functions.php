@@ -27,13 +27,14 @@ add_action(
 			(string) filemtime($path)
 		);
 
-		// Presentation only: the header menu's sliding underline.
-		$menuScript = get_stylesheet_directory() . '/assets/menu.js';
+		// Presentation only: the header menu's sliding underline and the
+		// looping categories band.
+		$storeScript = get_stylesheet_directory() . '/assets/store.js';
 		wp_enqueue_script(
-			'egstore-otour-menu',
-			get_stylesheet_directory_uri() . '/assets/menu.js',
+			'egstore-otour',
+			get_stylesheet_directory_uri() . '/assets/store.js',
 			[],
-			(string) filemtime($menuScript),
+			(string) filemtime($storeScript),
 			['in_footer' => true, 'strategy' => 'defer']
 		);
 	},

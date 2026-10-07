@@ -8,7 +8,8 @@ touching this folder. Built for Egstore theme and egstore-commerce **1.3.0**.
 |---|---|
 | `config/pages/home.php` | Homepage: which theme sections, in which order, with this store's copy. Replaces the theme's `config/pages/home.php`. |
 | `assets/store.css` | Brand layer: the dark homepage and section tokens. Values only, no structure. On the dark homepage the border colour is frost at the Customizer's border opacity (`--otour-border`), and the cart count's number is midnight (the badge is drawn in the light ink colour there). |
-| `functions.php` | Loads `assets/store.css`. Nothing else belongs here. |
+| `assets/store.js` | Presentation only: the header menu's sliding underline and the looping categories band (`#catalogue`, as in the demo: no arrows, full width, stops while pointed at). Both are candidates to become Egstore theme options if another store wants them. |
+| `functions.php` | Loads `assets/store.css` and `assets/store.js`. Nothing else belongs here. |
 
 If something cannot be expressed with sections, settings or tokens, add the
 capability to the Egstore theme (or plugin) instead of copying templates here.

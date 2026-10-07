@@ -86,6 +86,31 @@
 	}
 }
 
+/* Categories ("عوالم النفحات", #catalogue) as in the demo: a full-width band
+   that loops on its own and stops while pointed at, without arrows. Cards
+   enter and leave at the screen edges. store.js adds .is-otour-marquee;
+   without it (no script, reduced motion) the band scrolls by hand. */
+#catalogue {
+	overflow-x: clip;
+}
+
+#catalogue .eg-category-showcase__controls {
+	display: none !important;
+}
+
+#catalogue .eg-category-showcase__track {
+	margin-inline: calc(50% - 50vw);
+	padding-inline: 1rem;
+}
+
+#catalogue.is-otour-marquee .eg-category-showcase__track {
+	inline-size: max-content;
+	padding-inline: 0;
+	overflow: visible;
+	scroll-snap-type: none;
+	will-change: transform;
+}
+
 /* Homepage: dark surfaces for the header, the page and the bottom bar. */
 body.home {
 	background: #192c27;
