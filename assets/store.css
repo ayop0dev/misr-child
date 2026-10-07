@@ -10,6 +10,71 @@
  * botanical #55a630.
  */
 
+/* Header menu as in the Otour demo, on every page: text links without a
+   box, the current item and the featured item ("عنصر مميز") underlined in
+   the primary colour. */
+.eg-header__menu {
+	gap: 2.2rem;
+}
+
+.eg-header__menu > li > a,
+.eg-header__menu > li > a:hover,
+.eg-header__menu > li.current-menu-item > a,
+.eg-header__menu > li.current-menu-ancestor > a,
+.eg-header__menu > li.is-featured > a,
+.eg-header__menu > li.is-featured > a:hover,
+.eg-header__menu > li.is-featured.current-menu-item > a,
+.eg-header__menu > li.is-featured.current-menu-ancestor > a {
+	padding-inline: 0;
+	border: 0;
+	border-radius: 0;
+	background: transparent;
+}
+
+.eg-header__menu > li > a::after {
+	position: absolute;
+	inset-inline: 0;
+	inset-block-end: 0.45rem;
+	block-size: 2px;
+	background: var(--eg-color-primary);
+	content: "";
+	transform: scaleX(0);
+	transition: transform var(--eg-duration-fast) var(--eg-ease-standard);
+}
+
+.eg-header__menu > li.current-menu-item > a::after,
+.eg-header__menu > li.current-menu-ancestor > a::after,
+.eg-header__menu > li.is-featured > a::after {
+	transform: scaleX(1);
+}
+
+.eg-header__menu > li.is-featured > a,
+.eg-header__menu > li.is-featured > a:hover,
+.eg-header__menu > li.is-featured.current-menu-item > a,
+.eg-header__menu > li.is-featured.current-menu-ancestor > a {
+	color: var(--eg-color-primary);
+}
+
+/* A link to a section of the page ("عوالم العطور" → /#catalogue) is marked
+   current by WordPress on that page; only the page's own item is. */
+.eg-header__menu > li.current-menu-item:not(.is-featured) > a[href*="#"] {
+	color: var(--eg-color-muted);
+}
+
+.eg-header__menu > li.current-menu-item:not(.is-featured) > a[href*="#"]::after {
+	transform: scaleX(0);
+}
+
+.eg-header__menu > li.current-menu-item:not(.is-featured) > a[href*="#"]:hover {
+	color: var(--eg-color-ink);
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.eg-header__menu > li > a::after {
+		transition: none;
+	}
+}
+
 /* Homepage: dark surfaces for the header, the page and the bottom bar. */
 body.home {
 	background: #192c27;
