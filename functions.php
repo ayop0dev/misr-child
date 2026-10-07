@@ -1,6 +1,6 @@
 <?php
 /**
- * Otour store layer.
+ * Misr-Child: the store layer for عطور.ستور (otour.store).
  *
  * Only this store's identity lives here: the homepage composition
  * (config/pages/home.php replaces the parent's) and brand styling through the
@@ -8,7 +8,7 @@
  * egstore-commerce plugin; settings (colours, menus, announcement bar) live
  * in the Customizer.
  *
- * @package EgstoreOtour
+ * @package MisrChild
  */
 
 declare(strict_types=1);
@@ -21,7 +21,7 @@ add_action(
 		$path = get_stylesheet_directory() . '/assets/store.css';
 
 		wp_enqueue_style(
-			'egstore-otour',
+			'misr-child',
 			get_stylesheet_directory_uri() . '/assets/store.css',
 			['egstore-core'],
 			(string) filemtime($path)
@@ -31,7 +31,7 @@ add_action(
 		// looping categories band.
 		$storeScript = get_stylesheet_directory() . '/assets/store.js';
 		wp_enqueue_script(
-			'egstore-otour',
+			'misr-child',
 			get_stylesheet_directory_uri() . '/assets/store.js',
 			[],
 			(string) filemtime($storeScript),

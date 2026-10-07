@@ -1,4 +1,4 @@
-# Otour store layer (child theme of Egstore)
+# Misr-Child: store layer (child theme of Egstore) for عطور.ستور
 
 This theme holds only what is specific to عطور.ستور. Everything else comes
 from the Egstore theme and the egstore-commerce plugin, which update without
@@ -19,7 +19,7 @@ capability to the Egstore theme (or plugin) instead of copying templates here.
 Set these on every environment (Appearance → Customize / Menus). WordPress
 keeps Customizer settings per theme, so after activating this child theme for
 the first time, copy the parent's settings (`theme_mods_Egstore-theme` →
-`theme_mods_egstore-otour`) or re-enter them.
+`theme_mods_misr-child`) or re-enter them.
 
 - **Colours** (تصميم Egstore → الألوان): primary `#007f5f`, primary hover
   `#55a630`, text `#192c27`, muted `#365951`, border `#e6f0ee`, inverse

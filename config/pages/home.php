@@ -7,7 +7,7 @@
  * Images are media library attachment IDs; category cards and banners use
  * each category's own thumbnail and link.
  *
- * @package EgstoreOtour
+ * @package MisrChild
  */
 
 declare(strict_types=1);
