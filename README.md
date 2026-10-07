@@ -2,12 +2,12 @@
 
 This theme holds only what is specific to عطور.ستور. Everything else comes
 from the Egstore theme and the egstore-commerce plugin, which update without
-touching this folder.
+touching this folder. Built for Egstore theme and egstore-commerce **1.3.0**.
 
 | File | Purpose |
 |---|---|
 | `config/pages/home.php` | Homepage: which theme sections, in which order, with this store's copy. Replaces the theme's `config/pages/home.php`. |
-| `assets/store.css` | Brand layer: the dark homepage and section tokens. Values only, no structure. |
+| `assets/store.css` | Brand layer: the dark homepage and section tokens. Values only, no structure. On the dark homepage the border colour is frost at the Customizer's border opacity (`--otour-border`), and the cart count's number is midnight (the badge is drawn in the light ink colour there). |
 | `functions.php` | Loads `assets/store.css`. Nothing else belongs here. |
 
 If something cannot be expressed with sections, settings or tokens, add the
@@ -23,8 +23,13 @@ the first time, copy the parent's settings (`theme_mods_Egstore-theme` →
 - **Colours** (تصميم Egstore → الألوان): primary `#007f5f`, primary hover
   `#55a630`, text `#192c27`, muted `#365951`, border `#e6f0ee`, inverse
   `#f2f7f6`, prices `#007f5f`, card button hover `#55a630`, card button hover
-  icon `#192c27`.
+  icon `#192c27`. Since 1.3.0: border opacity ("شفافية الحدود") 30% (the
+  default; it also scales the dark homepage's borders) and rating stars
+  ("نجوم التقييم") empty for the theme's default yellow-orange.
 - **Header**: header menu on, sidebar menu button off, account button off.
+  On phones (Egstore 1.3.0) the header shows the logo only and the bottom
+  bar carries search, home, shop and the cart (no menu item while the
+  sidebar menu is off; the account link is in the footer).
 - **Announcement bar**: on, homepage only, four messages:
   شحن سريع لكل المحافظات · عروض مختارة تتجدد باستمرار ·
   منتجات أصلية من مصادر موثوقة · اختيارات عطرية تناسب كل حضور.

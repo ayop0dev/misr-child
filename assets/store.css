@@ -13,6 +13,10 @@
 /* Homepage: dark surfaces for the header, the page and the bottom bar. */
 body.home {
 	background: #192c27;
+	/* Borders on the dark homepage: frost at the Customizer's border
+	   opacity ("شفافية الحدود", 30% by default), so the setting applies
+	   here too; at 30% this is the 12% frost line the design used. */
+	--otour-border: color-mix(in oklch, rgb(230 240 238 / 0.4) var(--eg-border-opacity, 30%), transparent);
 }
 
 body.home .eg-header,
@@ -28,7 +32,7 @@ body.home .eg-mobile-shortcuts {
 	/* Aliases resolve where they are declared (:root), so restate them here. */
 	--eg-color-text: var(--eg-color-ink);
 	--eg-color-text-muted: var(--eg-color-muted);
-	--eg-color-border: var(--eg-color-line);
+	--eg-color-border: var(--otour-border);
 	/* Emerald is too dark for text on midnight; prices use the botanical green. */
 	--eg-color-price: #55a630;
 	/* Inherited text colour is computed on <body>; restate it for the scope. */
@@ -48,7 +52,7 @@ body.home .eg-header__menu > li.is-featured > a {
 body.home .eg-announcement-bar {
 	--eg-announcement-bg: #10201b;
 	--eg-announcement-text: #e6f0ee;
-	border-block-end: 1px solid rgb(230 240 238 / 0.08);
+	border-block-end: 1px solid var(--otour-border);
 }
 
 /* Hero: text side (right in RTL) darkened for legibility. */
@@ -85,5 +89,12 @@ body.home .eg-features {
 	--eg-features-bg: #10201b;
 	--eg-features-icon-bg: #1e352f;
 	--eg-features-icon: #55a630;
-	border-block: 1px solid rgb(230 240 238 / 0.08);
+	border-block: 1px solid var(--otour-border);
+}
+
+/* Cart count on the dark header and bottom bar: the badge is drawn in the
+   (here light) ink colour, so its number takes the midnight colour. The
+   inverse token stays light for the card buttons' icons on emerald. */
+body.home :is(.eg-header, .eg-mobile-shortcuts) .eg-cart-badge {
+	color: #192c27;
 }
