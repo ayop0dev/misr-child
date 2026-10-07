@@ -11,8 +11,14 @@
  */
 
 /* Header menu as in the Otour demo, on every page: text links without a
-   box, the current item and the featured item ("عنصر مميز") underlined in
-   the primary colour. */
+   box and one underline that slides to the item under the pointer (or
+   keyboard focus) and back to the current page's item (assets/menu.js).
+   Featured items ("عنصر مميز") keep their star and colour, no underline of
+   their own. */
+.eg-header__nav {
+	position: relative;
+}
+
 .eg-header__menu {
 	gap: 2.2rem;
 }
@@ -31,23 +37,6 @@
 	background: transparent;
 }
 
-.eg-header__menu > li > a::after {
-	position: absolute;
-	inset-inline: 0;
-	inset-block-end: 0.45rem;
-	block-size: 2px;
-	background: var(--eg-color-primary);
-	content: "";
-	transform: scaleX(0);
-	transition: transform var(--eg-duration-fast) var(--eg-ease-standard);
-}
-
-.eg-header__menu > li.current-menu-item > a::after,
-.eg-header__menu > li.current-menu-ancestor > a::after,
-.eg-header__menu > li.is-featured > a::after {
-	transform: scaleX(1);
-}
-
 .eg-header__menu > li.is-featured > a,
 .eg-header__menu > li.is-featured > a:hover,
 .eg-header__menu > li.is-featured.current-menu-item > a,
@@ -61,16 +50,38 @@
 	color: var(--eg-color-muted);
 }
 
-.eg-header__menu > li.current-menu-item:not(.is-featured) > a[href*="#"]::after {
-	transform: scaleX(0);
-}
-
 .eg-header__menu > li.current-menu-item:not(.is-featured) > a[href*="#"]:hover {
 	color: var(--eg-color-ink);
 }
 
+/* The sliding underline. menu.js sets its width and offset. */
+.otour-menu-indicator {
+	position: absolute;
+	inset-block-end: 0.45rem;
+	/* Physical left: menu.js measures from the nav's left edge. */
+	left: 0;
+	inline-size: var(--otour-indicator-width, 0px);
+	block-size: 2px;
+	background: var(--eg-color-primary);
+	opacity: 0;
+	pointer-events: none;
+	transform: translateX(var(--otour-indicator-x, 0px));
+}
+
+.otour-menu-indicator.is-shown {
+	opacity: 1;
+}
+
+/* No slide on the first placement; animated from then on. */
+.otour-menu-indicator.is-ready {
+	transition:
+		transform var(--eg-duration-base, 200ms) var(--eg-ease-standard, ease),
+		inline-size var(--eg-duration-base, 200ms) var(--eg-ease-standard, ease),
+		opacity var(--eg-duration-fast, 150ms) ease;
+}
+
 @media (prefers-reduced-motion: reduce) {
-	.eg-header__menu > li > a::after {
+	.otour-menu-indicator.is-ready {
 		transition: none;
 	}
 }

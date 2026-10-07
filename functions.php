@@ -26,6 +26,16 @@ add_action(
 			['egstore-core'],
 			(string) filemtime($path)
 		);
+
+		// Presentation only: the header menu's sliding underline.
+		$menuScript = get_stylesheet_directory() . '/assets/menu.js';
+		wp_enqueue_script(
+			'egstore-otour-menu',
+			get_stylesheet_directory_uri() . '/assets/menu.js',
+			[],
+			(string) filemtime($menuScript),
+			['in_footer' => true, 'strategy' => 'defer']
+		);
 	},
 	20
 );
