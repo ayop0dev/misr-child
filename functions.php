@@ -15,6 +15,9 @@ declare(strict_types=1);
 
 defined('ABSPATH') || exit;
 
+// First activation: the store's Customizer settings move over to Misr-Child.
+require_once __DIR__ . '/inc/import-settings.php';
+
 add_action(
 	'wp_enqueue_scripts',
 	static function (): void {
