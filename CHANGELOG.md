@@ -1,5 +1,13 @@
 # Misr-Child Changelog
 
+## 1.3.3
+
+- Hero on desktops (64rem and up): the title stays on one line; its room
+  widens to 64rem while the description, search and suggestions keep the
+  theme's width.
+- Features band on phones: two a row instead of one, titles at 16px so each
+  stays on one line.
+
 ## 1.3.2
 
 Needs Egstore theme 1.3.2.

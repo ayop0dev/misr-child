@@ -200,10 +200,39 @@ body.home .eg-hero__eyebrow {
 	color: #55a630;
 }
 
+/* Desktop: the title on one line. Its room widens; the description, search
+   and suggestions keep the theme's width. */
+@media (min-width: 64rem) {
+	body.home .eg-hero__content {
+		max-inline-size: 64rem;
+	}
+
+	body.home .eg-hero__title {
+		white-space: nowrap;
+	}
+
+	body.home .eg-hero__search,
+	body.home .eg-hero__suggestions {
+		max-inline-size: 40rem;
+	}
+}
+
 /* Features band (after the categories). */
 body.home .eg-features {
 	--eg-features-bg: #10201b;
 	--eg-features-icon-bg: #1e352f;
 	--eg-features-icon: #55a630;
 	border-block: 1px solid var(--eg-color-border);
+}
+
+/* Phones: two features a row instead of one. */
+@media (max-width: 47.99rem) {
+	body.home .eg-features__list {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: var(--eg-space-6) var(--eg-space-4);
+	}
+
+	body.home .eg-features__item-title {
+		font-size: var(--eg-text-base);
+	}
 }
