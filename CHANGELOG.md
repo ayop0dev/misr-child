@@ -1,5 +1,10 @@
 # Misr-Child Changelog
 
+## 1.3.6
+
+- Homepage section headings on phones: the button aligns to the bottom of
+  the title and description, as on desktop.
+
 ## 1.3.5
 
 - Homepage section headings on phones: heading and button side by side

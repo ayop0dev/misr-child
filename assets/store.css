@@ -129,7 +129,7 @@ body.home .eg-category-showcase__toggle:hover {
 	body.home .eg-product-collection__header,
 	body.home .eg-category-showcase__header {
 		flex-direction: row;
-		align-items: center;
+		align-items: end;
 		gap: var(--eg-space-3);
 	}
 
