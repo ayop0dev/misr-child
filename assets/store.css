@@ -4,7 +4,8 @@
  * Only token values and brand-specific touches; structure comes from the
  * Egstore theme. Store-wide colours (primary, text, price, card buttons) are
  * Customizer settings. The homepage uses the theme's light palette; only its
- * hero and the features band before the footer keep the demo's dark look.
+ * hero and the features band (after the categories) keep the demo's dark
+ * look.
  *
  * Palette: midnight #192c27, surface #1e352f, elevated #243e37,
  * pearl #f2f7f6, frost #e6f0ee, slate #365951, emerald #007f5f,
@@ -134,6 +135,20 @@
 	animation-play-state: paused;
 }
 
+/* "عرض الكل" (the theme's .is-expanded): the band stops and becomes the
+   theme's grid; the looping copies step aside. */
+#catalogue.is-expanded .eg-category-showcase__track {
+	inline-size: auto;
+	margin-inline: 0;
+	padding-inline: 0;
+	animation: none;
+	transform: none;
+}
+
+#catalogue.is-expanded .eg-category-showcase__item[inert] {
+	display: none;
+}
+
 @keyframes otour-marquee {
 	to {
 		transform: translate3d(var(--otour-marquee-shift, 0px), 0, 0);
@@ -141,8 +156,7 @@
 }
 
 /* Homepage: the theme's light palette, like every other page. Only the hero
-   and the features band before the footer keep the demo's dark "midnight
-   forest" look. */
+   and the features band keep the demo's dark "midnight forest" look. */
 body.home .eg-hero,
 body.home .eg-features {
 	--eg-color-canvas: #192c27;
@@ -173,11 +187,20 @@ body.home .eg-hero {
 	--eg-hero-overlay: linear-gradient(to right, rgb(25 44 39 / 0.94), rgb(25 44 39 / 0.6) 55%, rgb(25 44 39 / 0.2));
 }
 
+/* Phones: the text is centred (mobile_align), so the whole cover darkens
+   evenly instead of one side. */
+@media (max-width: 47.99rem) {
+	body.home .eg-hero,
+	[dir="ltr"] body.home .eg-hero {
+		--eg-hero-overlay: linear-gradient(to top, rgb(25 44 39 / 0.94), rgb(25 44 39 / 0.72));
+	}
+}
+
 body.home .eg-hero__eyebrow {
 	color: #55a630;
 }
 
-/* Features band before the footer. */
+/* Features band (after the categories). */
 body.home .eg-features {
 	--eg-features-bg: #10201b;
 	--eg-features-icon-bg: #1e352f;

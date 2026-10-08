@@ -25,9 +25,10 @@ return [
 	[
 		'section' => 'hero',
 		'config'  => [
-			'eyebrow'             => 'عطور.ستور • OTOUR.STORE',
-			'title'               => 'أناقةٌ أبدية تُخلّد حضورك',
-			'description'         => 'مختارات استثنائية من العطور والنفحات الفاخرة، لتمنحك بصمة لا تُنسى في كل لحظة.',
+			'eyebrow'             => 'عطور.ستور',
+			'title'               => 'أكمل أناقتك بعطرك الفريد',
+			'description'         => 'مختارات استثنائية من العطور العربية تمنحك بصمة فريدة',
+			'mobile_align'        => 'center',
 			'image'               => 489,
 			'search'              => true,
 			'search_placeholder'  => 'ابحث عن عطرك أو النوتة المفضلة...',
@@ -39,10 +40,12 @@ return [
 	[
 		'section' => 'category-showcase',
 		'config'  => [
-			'id'          => 'catalogue',
-			'title'       => 'عوالم النفحات والتطبيقات العطرية',
-			'description' => 'من العطور الشخصية والمسك إلى رذاذات العناية وأجواء المنزل والسيارة.',
-			'categories'  => [
+			'id'             => 'catalogue',
+			'title'          => 'عوالم متنوعة لعطورك من عطور',
+			'description'    => 'من العطور الشخصية والمسكات إلى أجواء تعطير المنزل والسيارة.',
+			'view_all_label' => 'عرض الكل',
+			'card_style'     => 'overlay',
+			'categories'     => [
 				'incense',
 				'raw-essential-oil',
 				'original',
@@ -58,7 +61,7 @@ return [
 				'home-air-freshener',
 				'car-air-fresheners',
 			],
-			'copy'        => [
+			'copy'           => [
 				'incense'            => ['label' => 'طيوب التراث', 'text' => 'رقائق وبخور عربي لنفحات الضيافة الأصيلة.'],
 				'raw-essential-oil'  => ['label' => 'خلاصات نقية', 'text' => 'زيوت وأدهان عطرية مركزة بثبات ممتد.'],
 				'original'           => ['label' => 'نيش أصيل', 'text' => 'عطور أصلية مختارة من دور موثوقة.'],
@@ -66,7 +69,7 @@ return [
 				'for-him'            => ['label' => 'طابع رجالي', 'text' => 'توليفات خشبية وعطرية لحضور واثق.'],
 				'for-her'            => ['label' => 'أنوثة فاتنة', 'text' => 'نفحات زهرية ومخملية مميزة.'],
 				'fragrant'           => ['label' => 'أجواء معمارية', 'text' => 'فواحات تنشر العطر بهدوء في المكان.'],
-				'burners'            => ['label' => 'تحف الاقتناء', 'text' => 'مباخر تضيف حضورًا للمجلس والمنزل.'],
+				'burners'            => ['label' => 'تحف الاقتناء', 'text' => 'مباخر تضيف حضورا للمجلس والمنزل.'],
 				'musk'               => ['label' => 'نقاء مطلق', 'text' => 'مختارات المسك للنقاء والثبات.'],
 				'bodysplash'         => ['label' => 'عناية يومية', 'text' => 'رذاذات منعشة للجسم طوال اليوم.'],
 				'hair-mist'          => ['label' => 'لمعان وثبات', 'text' => 'معطرات شعر خفيفة وعملية.'],
@@ -77,12 +80,24 @@ return [
 		],
 	],
 	[
+		'section' => 'features',
+		'config'  => [
+			'id'    => 'charter',
+			'items' => [
+				['icon' => 'circle-check', 'title' => 'أصالة موثوقة', 'text' => 'منتجات منتقاة من مصادر موثوقة.'],
+				['icon' => 'truck', 'title' => 'شحن لكل المحافظات', 'text' => 'توصيل منظم ومتابعة واضحة للطلب.'],
+				['icon' => 'zap', 'title' => 'عروض متجددة', 'text' => 'اختيارات وعروض مناسبة طوال الوقت.'],
+				['icon' => 'message-circle', 'title' => 'دعم مستمر', 'text' => 'نساعدك في اختيار المنتج المناسب.'],
+			],
+		],
+	],
+	[
 		// Products the merchant puts in the "الأكثر مبيعا" category; the
 		// section stays hidden while the category is empty.
 		'section' => 'product-collection',
 		'config'  => [
 			'id'           => 'bestsellers',
-			'title'        => 'الأكثر مبيعاً',
+			'title'        => 'الأكثر مبيعا',
 			'description'  => 'مختارات رائجة من العطور والنفحات التي يفضلها عملاؤنا.',
 			'action_label' => 'عرض الكل',
 			'action_url'   => $categoryUrl('الأكثر-مبيعا'),
@@ -94,8 +109,8 @@ return [
 		'section' => 'product-collection',
 		'config'  => [
 			'id'           => 'body-sprays',
-			'title'        => 'معطرات الجسم',
-			'description'  => 'رذاذات منعشة تضيف لمسة عطرية خفيفة للاستخدام اليومي.',
+			'title'        => 'سبلاشات من لطافة',
+			'description'  => 'مختارات لطافة الأصلية لمعطرات الجسم للإستخدام اليومي',
 			'action_label' => 'عرض الكل',
 			'action_url'   => $categoryUrl('bodysplash'),
 			'layout'       => 'split',
@@ -107,18 +122,6 @@ return [
 				'action_label' => 'تصفح المجموعة',
 				'category'     => 'bodysplash',
 			],
-		],
-	],
-	[
-		'section' => 'product-collection',
-		'config'  => [
-			'id'           => 'new-arrivals',
-			'title'        => 'العطور الأصلية والإصدارات المميزة',
-			'description'  => 'توليفات منتقاة لحضور واضح وثبات يدوم.',
-			'action_label' => 'عرض الكل',
-			'action_url'   => $shopUrl,
-			'show_rating'  => true,
-			'source'       => ['type' => 'latest', 'limit' => 8],
 		],
 	],
 	[
@@ -146,6 +149,18 @@ return [
 		],
 	],
 	[
+		'section' => 'product-collection',
+		'config'  => [
+			'id'           => 'new-arrivals',
+			'title'        => 'العطور الأصلية والإصدارات المميزة',
+			'description'  => 'توليفات منتقاة لحضور واضح وثبات يدوم.',
+			'action_label' => 'عرض الكل',
+			'action_url'   => $shopUrl,
+			'show_rating'  => true,
+			'source'       => ['type' => 'latest', 'limit' => 8],
+		],
+	],
+	[
 		'section' => 'promo-banners',
 		'config'  => [
 			'id'          => 'sanctuaries',
@@ -154,7 +169,7 @@ return [
 			'items'       => [
 				[
 					'label'        => 'أجواء المنزل',
-					'title'        => 'نفحات تمنح مساحتك طابعًا خاصًا',
+					'title'        => 'نفحات تمنح مساحتك طابعا خاصا',
 					'action_label' => 'استكشف المجموعة',
 					'category'     => 'home-air-freshener',
 				],
@@ -164,18 +179,6 @@ return [
 					'action_label' => 'استكشف المجموعة',
 					'category'     => 'car-air-fresheners',
 				],
-			],
-		],
-	],
-	[
-		'section' => 'features',
-		'config'  => [
-			'id'    => 'charter',
-			'items' => [
-				['icon' => 'circle-check', 'title' => 'أصالة موثوقة', 'text' => 'منتجات منتقاة من مصادر موثوقة.'],
-				['icon' => 'truck', 'title' => 'شحن لكل المحافظات', 'text' => 'توصيل منظم ومتابعة واضحة للطلب.'],
-				['icon' => 'zap', 'title' => 'عروض متجددة', 'text' => 'اختيارات وعروض مناسبة طوال الوقت.'],
-				['icon' => 'message-circle', 'title' => 'دعم مستمر', 'text' => 'نساعدك في اختيار المنتج المناسب.'],
 			],
 		],
 	],

@@ -1,5 +1,19 @@
 # Misr-Child Changelog
 
+## 1.3.2
+
+Needs Egstore theme 1.3.2.
+
+- Homepage copy without tashkeel. Hero: eyebrow "عطور.ستور", title "أكمل
+  أناقتك بعطرك الفريد", new description; centred on phones
+  (`mobile_align`), with an even overlay behind it there.
+- Categories: "عوالم متنوعة لعطورك من عطور" with a new description; overlay
+  cards (3:4) and "عرض الكل", which turns the band into the theme's grid
+  (the loop stops and its copies step aside).
+- Body splashes: "سبلاشات من لطافة" with a new description.
+- Order: the features band follows the categories; women's and men's
+  perfumes come before the original perfumes.
+
 ## 1.3.1
 
 - Categories band (#catalogue): the loop is a CSS animation instead of a
