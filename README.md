@@ -54,3 +54,22 @@ Customize / Menus):
 - **Content**: products for the best-sellers shelf go in the
   "الأكثر مبيعا" category (the section is hidden while it is empty); the
   hero image is media library attachment 489.
+
+## Updates and releases
+
+Misr-Child updates from WordPress → Updates through the Egstore update
+gateway, like the parent theme and the plugin (needs egstore-commerce 1.3.1
+or newer). `style.css` declares `Update URI` and `Egstore Update Key`, the
+Ed25519 public key in `release-config.json`; the plugin trusts only releases
+signed with that key.
+
+To release a version:
+
+1. Set the same version in `VERSION` and `style.css`, add it to
+   `CHANGELOG.md`, commit, and tag `v{version}`.
+2. Build signed: `php scripts/release/build.php --output <dir>
+   --signing-key-file <key>` (the private key is kept outside the repo).
+3. Publish a GitHub Release for the tag with the zip, manifest, checksums,
+   audit and changelog.
+4. On the gateway: `php import-release.php misr-child v{version}`, then
+   `php promote-release.php misr-child {version}`.
