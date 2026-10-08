@@ -118,6 +118,26 @@
 	overflow: visible;
 	scroll-snap-type: none;
 	will-change: transform;
+	/* A CSS animation runs on the compositor: no script per frame. store.js
+	   sets the distance of one set of cards and the matching duration. */
+	animation: otour-marquee var(--otour-marquee-duration, 60s) linear infinite;
+	animation-play-state: paused;
+}
+
+/* Runs only while on screen, and stops while pointed at or focused. */
+#catalogue.is-otour-marquee.is-in-view .eg-category-showcase__track {
+	animation-play-state: running;
+}
+
+#catalogue.is-otour-marquee.is-in-view .eg-category-showcase__track:hover,
+#catalogue.is-otour-marquee.is-in-view .eg-category-showcase__track:focus-within {
+	animation-play-state: paused;
+}
+
+@keyframes otour-marquee {
+	to {
+		transform: translate3d(var(--otour-marquee-shift, 0px), 0, 0);
+	}
 }
 
 /* Homepage: the theme's light palette, like every other page. Only the hero

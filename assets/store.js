@@ -105,30 +105,21 @@
 		section.classList.add('is-otour-marquee');
 		track.removeAttribute('tabindex');
 
-		// In RTL the copies sit to the left, so the band moves right.
+		// The motion itself is a CSS animation (assets/store.css); the script
+		// only measures one set of cards. In RTL the copies sit to the left,
+		// so the band moves right.
 		var direction = getComputedStyle(track).direction === 'rtl' ? 1 : -1;
 		var cycle = 0;
-		var offset = 0;
-		var last = performance.now();
-		var paused = false;
 
 		function measure() {
-			cycle = Math.abs(track.children[originals.length].offsetLeft - originals[0].offsetLeft);
-		}
-
-		function frame(now) {
-			if (!paused && cycle > 0) {
-				offset = (offset + (now - last) * LOOP_SPEED) % cycle;
-				track.style.transform = 'translate3d(' + (direction * offset) + 'px, 0, 0)';
+			var next = Math.abs(track.children[originals.length].offsetLeft - originals[0].offsetLeft);
+			if (next === cycle || next === 0) {
+				return;
 			}
-			last = now;
-			requestAnimationFrame(frame);
+			cycle = next;
+			track.style.setProperty('--otour-marquee-shift', (direction * cycle) + 'px');
+			track.style.setProperty('--otour-marquee-duration', Math.round(cycle / LOOP_SPEED) + 'ms');
 		}
-
-		track.addEventListener('mouseenter', function () { paused = true; });
-		track.addEventListener('mouseleave', function () { paused = false; });
-		track.addEventListener('focusin', function () { paused = true; });
-		track.addEventListener('focusout', function () { paused = false; });
 
 		measure();
 		if (typeof window.ResizeObserver === 'function') {
@@ -136,7 +127,15 @@
 		} else {
 			window.addEventListener('resize', measure);
 		}
-		requestAnimationFrame(frame);
+
+		// Off screen the band stands still, so it costs nothing there.
+		if (typeof window.IntersectionObserver === 'function') {
+			new IntersectionObserver(function (entries) {
+				section.classList.toggle('is-in-view', entries[entries.length - 1].isIntersecting);
+			}).observe(section);
+		} else {
+			section.classList.add('is-in-view');
+		}
 	}
 
 	function start() {
