@@ -1,5 +1,12 @@
 # Misr-Child Changelog
 
+## 1.3.4
+
+- Homepage section headings with a button opposite (product sections' and
+  the categories' "عرض الكل"): the button in the theme's button colours
+  (Customizer primary and its hover), and a divider under the heading,
+  before the products, in the theme's border colour and opacity.
+
 ## 1.3.3
 
 - Hero on desktops (64rem and up): the title stays on one line; its room

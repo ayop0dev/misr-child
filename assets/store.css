@@ -96,6 +96,30 @@
 	font-size: clamp(1.5rem, 5vw, 3.5rem);
 }
 
+/* Homepage section headings (title, description and the button opposite):
+   the button in the theme's button colours (Customizer primary and its
+   hover), and a divider under the heading, before the products, in the
+   theme's border colour and opacity ("شفافية الحدود"). */
+body.home .eg-product-collection__header,
+body.home .eg-category-showcase__header {
+	padding-block-end: var(--eg-space-5);
+	border-block-end: 1px solid var(--eg-color-border);
+}
+
+body.home .eg-product-collection__action,
+body.home .eg-category-showcase__toggle {
+	border-color: transparent;
+	color: var(--eg-color-inverse);
+	background: var(--eg-color-primary);
+}
+
+body.home .eg-product-collection__action:hover,
+body.home .eg-category-showcase__toggle:hover {
+	border-color: transparent;
+	color: var(--eg-color-inverse);
+	background: var(--eg-color-primary-dark);
+}
+
 /* Categories ("عوالم النفحات", #catalogue) as in the demo: a full-width band
    that loops on its own and stops while pointed at, without arrows. Cards
    enter and leave at the screen edges. store.js adds .is-otour-marquee;
