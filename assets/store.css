@@ -120,6 +120,61 @@ body.home .eg-category-showcase__toggle:hover {
 	background: var(--eg-color-primary-dark);
 }
 
+/* Phones: heading and button side by side (two columns), the button small.
+   The title always holds one line, at one size for every section that
+   fits the longest title ("العطور الأصلية والإصدارات المميزة" beside a ~75px
+   button at 360px; the arrow icon is dropped there); the description may
+   take two lines. */
+@media (max-width: 47.99rem) {
+	body.home .eg-product-collection__header,
+	body.home .eg-category-showcase__header {
+		flex-direction: row;
+		align-items: center;
+		gap: var(--eg-space-3);
+	}
+
+	body.home .eg-product-collection__heading,
+	body.home .eg-category-showcase__heading {
+		flex: 1;
+		grid-template-columns: minmax(0, 1fr);
+		gap: var(--eg-space-1);
+		min-inline-size: 0;
+	}
+
+	body.home .eg-product-collection__heading h2,
+	body.home .eg-category-showcase__heading h2,
+	body.home #new-arrivals .eg-product-collection__heading h2 {
+		max-inline-size: none;
+		overflow: hidden;
+		font-size: clamp(1rem, 4.7vw, 1.5rem);
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+
+	body.home .eg-product-collection__heading p,
+	body.home .eg-category-showcase__heading p {
+		display: -webkit-box;
+		overflow: hidden;
+		font-size: var(--eg-text-sm);
+		line-height: 1.6;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		line-clamp: 2;
+	}
+
+	body.home .eg-product-collection__action,
+	body.home .eg-category-showcase__toggle {
+		gap: var(--eg-space-1);
+		min-block-size: 2rem;
+		padding: var(--eg-space-1) var(--eg-space-3);
+		font-size: var(--eg-text-xs);
+	}
+
+	body.home .eg-product-collection__action-icon {
+		display: none;
+	}
+}
+
 /* Categories ("عوالم النفحات", #catalogue) as in the demo: a full-width band
    that loops on its own and stops while pointed at, without arrows. Cards
    enter and leave at the screen edges. store.js adds .is-otour-marquee;

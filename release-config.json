@@ -39,7 +39,7 @@
   "rollback": {
     "strategy": "previous-approved-release",
     "baseline_version": "1.3.0",
-    "previous_version": "1.3.3",
-    "artifact_sha256": "43204fe65519a61e7860421b788d9c09060722b702d85fa0c92e431aee61a808"
+    "previous_version": "1.3.4",
+    "artifact_sha256": "c8fa0d784932f0908072e4c270b03371bf9ccf1a38686ddf3b5fe2a99c26c97e"
   }
 }

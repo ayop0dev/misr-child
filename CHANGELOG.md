@@ -1,5 +1,13 @@
 # Misr-Child Changelog
 
+## 1.3.5
+
+- Homepage section headings on phones: heading and button side by side
+  instead of the button below. The button is smaller (12px, no arrow). Every
+  title holds one line at one shared size (4.7vw, 16-24px) that fits the
+  longest ("العطور الأصلية والإصدارات المميزة") from 360px up; below that it
+  ends in "…". The description takes at most two lines.
+
 ## 1.3.4
 
 - Homepage section headings with a button opposite (product sections' and
